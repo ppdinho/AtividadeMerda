@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Usuário</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Seu Perfil</h1>
+        <a href="index.html">Voltar para o início</a>
+    </header>
+
+    <div id="perfil">
+        <h2>Dados do Usuário</h2>
+        <p><strong>Nome:</strong> <span id="usuarioNome">Carregando...</span></p>
+        <p><strong>E-mail:</strong> <span id="usuarioEmail">Carregando...</span></p>
+        <p><strong>Telefone:</strong> <span id="usuarioTelefone">Carregando...</span></p>
+        <p><strong>CPF:</strong> <span id="usuarioCpf">Carregando...</span></p>
+    </div>
+
+    <script>
+        // Verifica se o usuário está logado e exibe as informações no perfil
+        window.onload = function() {
+            const usuario = JSON.parse(localStorage.getItem("usuario"));
+            if (usuario) {
+                // Exibe os dados no perfil
+                document.getElementById("usuarioNome").textContent = usuario.nome;
+                document.getElementById("usuarioEmail").textContent = usuario.email;
+                document.getElementById("usuarioTelefone").textContent = usuario.telefone;
+                document.getElementById("usuarioCpf").textContent = usuario.cpf;
+            } 
+        }
+    </script>
+</body>
+</html>
